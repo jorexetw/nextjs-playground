@@ -23,7 +23,9 @@ function writeFile(filePath: string, title: string) {
 async function main() {
     const {id, title} = await parseArguments();
     const filePath = path.join(postsDirectory, `${id}.md`);
+    console.log('Writing post');
     writeFile(filePath, title);
+    console.log('Pushing to github');
     await git.pull();
     await git.add(filePath);
     await git.commit(id);

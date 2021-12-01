@@ -1,8 +1,8 @@
 import React from 'react';
+import {CarData} from "../models/carData";
 
 interface MyCarProps {
-    color: string;
-    wheels?: number;
+    car: CarData;
 }
 
 /**
@@ -17,8 +17,8 @@ class MyCarComponent extends React.Component<MyCarProps> {
     }
 
     render() {
-        const color = this.props.color;
-        const wheels = this.props.wheels;
+        const color = '';
+        const wheels = '';
 
         return <div>My car is {color} and has {wheels} wheels</div>;
     }
@@ -29,11 +29,8 @@ class MyCarComponent extends React.Component<MyCarProps> {
 /**
  * Functional implementation
  */
-const MyCar: React.FC<MyCarProps> = (props) => {
-    const color = props.color;
-    const wheels = props.wheels;
-
-    return <div>My car is {color} and has {wheels} wheels</div>;
+const MyCar: React.FC<MyCarProps> = ({car}) => {
+    return <div>My car is a {car.name} and it is {car.color}. Id: {car.id}</div>;
 }
 
 export default MyCar;

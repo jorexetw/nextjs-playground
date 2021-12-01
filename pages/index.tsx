@@ -10,38 +10,21 @@ import {getSortedPostsData} from "../lib/posts";
 import Date from "../components/date";
 import MyCar from "../components/myCar";
 import {useState} from "react";
+import CarList from "../components/carList";
+import {CarData} from "../models/carData";
 
 interface HomeProps {
     posts: Post[];
 }
 
-const internalState = {
-    color: 'blue',
-    wheels: '1',
-}
-
 const Home: NextPage<HomeProps> = ({posts}) => {
-    const [color, setColor] = useState('blue');
-    const [wheels, setWheels] = useState(0);
-
-    const changeColor = () => {
-        setColor('red');
-    }
-
-    const addWheel = () => {
-        setWheels(wheels + 1);
-    }
-
-    const removeWheel = () => {
-        setWheels(wheels - 1);
-    }
+    const [myCar, setMyCar] = useState<CarData>();
 
   return (
       <Layout home>
-          <button onClick={changeColor}>Color switch</button>
-          <button onClick={addWheel}>Add wheel</button>
-          <button onClick={removeWheel}>Remove wheel</button>
-          <MyCar color={color} wheels={wheels} />
+          {myCar ? <MyCar car={myCar} /> : "I didn't pick any car"}
+          <br />
+          <CarList setMyCar={setMyCar} />
       </Layout>
   )
 }

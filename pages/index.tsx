@@ -8,37 +8,40 @@ import utilStyles from "../styles/utils.module.css"
 import Post from "../models/post";
 import {getSortedPostsData} from "../lib/posts";
 import Date from "../components/date";
+import MyCar from "../components/car";
+import {useState} from "react";
 
 interface HomeProps {
     posts: Post[];
 }
 
+const internalState = {
+    color: 'blue',
+    wheels: '1',
+}
+
 const Home: NextPage<HomeProps> = ({posts}) => {
+    const [color, setColor] = useState('blue');
+    const [wheels, setWheels] = useState(0);
+
+    const changeColor = () => {
+        setColor('red');
+    }
+
+    const addWheel = () => {
+        setWheels(wheels + 1);
+    }
+
+    const removeWheel = () => {
+        setWheels(wheels - 1);
+    }
+
   return (
       <Layout home>
-        <Head>
-          <title>{siteTitle}</title>
-        </Head>
-        <section className={utilStyles.headingMd}>
-          <p>La página de Jorge</p>
-          <p></p>
-        </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-          <h2 className={utilStyles.headingLg}>Blog</h2>
-          <ul className={utilStyles.list}>
-              {posts.map(({ id, date, title }) => (
-                  <li className={utilStyles.listItem} key={id}>
-                      <Link href={`/posts/${id}`}>
-                          <a>{title}</a>
-                      </Link>
-                      <br />
-                      <small className={utilStyles.lightText}>
-                          <Date dateString={date} />
-                      </small>
-                  </li>
-              ))}
-          </ul>
-      </section>
+          <button onClick={changeColor}>Color switch</button>
+          <button onClick={addWheel}>Add wheel</button>
+          <button onClick={removeWheel}>Remove wheel</button>
+          <MyCar color={color} wheels={wheels} />
       </Layout>
   )
 }

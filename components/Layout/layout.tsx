@@ -5,8 +5,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import utilStyles from '../../styles/utils.module.css'
 
-const name = 'Jorge Gomez'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Typeworks'
+export const siteTitle = 'Learning stuff'
 
 export interface LayoutProps {
     children?: React.ReactNode;

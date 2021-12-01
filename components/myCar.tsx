@@ -9,6 +9,13 @@ interface MyCarProps {
  * Old implementation of component
  */
 class MyCarComponent extends React.Component<MyCarProps> {
+
+    componentDidMount() {
+    }
+
+    componentWillUnmount() {
+    }
+
     render() {
         const color = this.props.color;
         const wheels = this.props.wheels;

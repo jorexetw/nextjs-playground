@@ -8,7 +8,7 @@ import utilStyles from "../styles/utils.module.css"
 import Post from "../models/post";
 import {getSortedPostsData} from "../lib/posts";
 import Date from "../components/date";
-import MyCar from "../components/car";
+import MyCar from "../components/myCar";
 import {useState} from "react";
 
 interface HomeProps {

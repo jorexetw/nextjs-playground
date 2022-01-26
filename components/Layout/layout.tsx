@@ -5,8 +5,8 @@ import Head from 'next/head'
 import Link from 'next/link'
 import utilStyles from '../../styles/utils.module.css'
 
-const name = 'Jorge Gomez'
-export const siteTitle = 'Next.js Sample Website'
+const name = 'Typeworks'
+export const siteTitle = 'Learning stuff'
 
 export interface LayoutProps {
     children?: React.ReactNode;
@@ -33,14 +33,19 @@ export default function Layout({ children, home }: LayoutProps) {
         <header className={styles.header}>
             {home ? (
                 <>
-                    <Image
-                        priority
-                        src="/images/rick.jpg"
-                        className={utilStyles.borderCircle}
-                        height={144}
-                        width={144}
-                        alt={name}
-                    />
+                    <Link href={'/posts'}>
+                        <div className={utilStyles.cursorPointer}>
+                            <Image
+                                priority
+                                src="/images/rick.jpg"
+                                className={utilStyles.borderCircle}
+                                height={144}
+                                width={144}
+                                alt={name}
+                            />
+                            Posts
+                        </div>
+                    </Link>
                     <h1 className={utilStyles.heading2Xl}>{name}</h1>
                 </>
             ) : (

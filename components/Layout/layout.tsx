@@ -33,14 +33,19 @@ export default function Layout({ children, home }: LayoutProps) {
         <header className={styles.header}>
             {home ? (
                 <>
-                    <Image
-                        priority
-                        src="/images/rick.jpg"
-                        className={utilStyles.borderCircle}
-                        height={144}
-                        width={144}
-                        alt={name}
-                    />
+                    <Link href={'/posts'}>
+                        <div className={utilStyles.cursorPointer}>
+                            <Image
+                                priority
+                                src="/images/rick.jpg"
+                                className={utilStyles.borderCircle}
+                                height={144}
+                                width={144}
+                                alt={name}
+                            />
+                            Posts
+                        </div>
+                    </Link>
                     <h1 className={utilStyles.heading2Xl}>{name}</h1>
                 </>
             ) : (

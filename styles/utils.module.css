@@ -29,6 +29,10 @@
     border-radius: 9999px;
 }
 
+.cursorPointer {
+    cursor: pointer;
+}
+
 .colorInherit {
     color: inherit;
 }

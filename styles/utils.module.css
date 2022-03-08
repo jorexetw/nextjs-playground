@@ -33,6 +33,12 @@
     cursor: pointer;
 }
 
+.link {
+    cursor: pointer;
+    color: dodgerblue;
+    text-decoration-line: underline;
+}
+
 .colorInherit {
     color: inherit;
 }

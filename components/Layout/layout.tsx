@@ -33,19 +33,19 @@ export default function Layout({ children, home }: LayoutProps) {
         <header className={styles.header}>
             {home ? (
                 <>
-                    <Link href={'/posts'}>
-                        <div className={utilStyles.cursorPointer}>
-                            <Image
-                                priority
-                                src="/images/rick.jpg"
-                                className={utilStyles.borderCircle}
-                                height={144}
-                                width={144}
-                                alt={name}
-                            />
-                            Posts
-                        </div>
-                    </Link>
+                    <Image
+                        priority
+                        src="/images/rick.jpg"
+                        className={utilStyles.borderCircle}
+                        height={144}
+                        width={144}
+                        alt={name}
+                    />
+                    <ul>
+                        <li><Link href={'/'}><div className={utilStyles.link}>Home</div></Link></li>
+                        <li><Link href={'/search'}><div className={utilStyles.link}>Search</div></Link></li>
+                        <li><Link href={'/posts'}><div className={utilStyles.link}>Posts</div></Link></li>
+                    </ul>
                     <h1 className={utilStyles.heading2Xl}>{name}</h1>
                 </>
             ) : (
@@ -73,8 +73,8 @@ export default function Layout({ children, home }: LayoutProps) {
         <main>{children}</main>
         {!home && (
             <div className={styles.backToHome}>
-                <Link href="/">
-                    <a>← Back to home</a>
+                <Link href="/posts">
+                    <a>← Back to posts</a>
                 </Link>
             </div>
         )}
